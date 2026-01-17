@@ -1,0 +1,51 @@
+Project Report: Netflix Global Content Strategy Analysis
+1. Executive Summary
+This report details the end-to-end data science workflow applied to the Netflix Movies and TV Shows dataset. The objective was to move beyond basic visualization and uncover strategic business risks and content trends that define Netflix’s market position.
+
+2. Dataset Overview
+Source: Netflix Movies and TV Shows Dataset.
+
+Raw State: The dataset contained approximately 8,807 rows and 12 columns.
+
+Initial Observations: It featured a mix of categorical (Type, Rating), numerical (Release Year), and complex text-based data (Cast, Director, Listed_in, Country).
+
+3. Data Challenges & Cleaning (The "Truth" about the Errors)
+We encountered several significant hurdles during the cleaning phase:
+
+Missing Values (NaNs): Key columns like Director, Cast, and Country had massive gaps. We strategically filled the Country and Rating columns using the Mode (most frequent value) to maintain statistical integrity.
+
+Multi-Value Strings: The listed_in (genres) and country columns contained multiple entries separated by commas (e.g., "United States, India"). We resolved this by creating a "Primary Country" feature and using List Explosion techniques to isolate unique genres for accurate counting.
+
+Date Formatting: The date_added column was in a non-standard string format. We converted this into a Datetime object, allowing us to extract the specific year and month content was added to the platform.
+
+4. Feature Engineering
+To add depth to the analysis, we worked on 12+ modified columns, including:
+
+Content Age: Calculated the gap between release_year and year_added to see if Netflix is becoming a "Digital Museum" or staying fresh.
+
+Maturity Categorization: Engineered a boolean feature to separate "Mature" content (TV-MA, R) from "Family" content.
+
+5. Exploratory Data Analysis (EDA) & Visualizations
+We utilized a variety of charts to tell the story:
+
+Donut & Pie Charts: Used for Geographic Concentration (revealing that 68% of content comes from just 5 countries).
+
+Line & Area Charts: To track the Velocity of Content over time, identifying the massive growth peak in 2019.
+
+Heatmaps: To visualize the increasing intensity of Mature Content over the years.
+
+Box Plots: Used for Content Age Analysis, showing that TV Shows are significantly "fresher" than Movies.
+
+Bar Charts: To rank the top-performing Genres and Ratings.
+
+6. Final Strategic Results (The Story)
+The data revealed three major "Truths" about Netflix's current trajectory:
+
+The Concentration Risk: Netflix has a heavy supply-chain dependency. With nearly 70% of content originating from only 5 nations, any local political or economic shifts in those regions pose a threat to global library stability.
+
+The Maturity Pivot: Since 2015, Netflix has aggressively moved away from "Family" content toward "Mature/Adult" content. This narrows their demographic but builds a "Premium" brand identity similar to HBO.
+
+The Innovation Plateau: Our analysis of genre diversity showed that after 2017, the introduction of new genres has flattened. Netflix is now focusing on optimizing existing hits rather than exploring new creative categories.
+
+7. Conclusion
+The project successfully transformed a messy dataset into a strategic roadmap. The final results suggest that for long-term sustainability, Netflix must decentralize its production to emerging markets and re-address the "Family" demographic to compete with rivals like Disney+.
